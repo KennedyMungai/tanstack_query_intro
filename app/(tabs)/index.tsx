@@ -1,9 +1,14 @@
-import { ActivityIndicator, FlatList, StyleSheet, Text } from 'react-native'
+import {
+	ActivityIndicator,
+	FlatList,
+	SafeAreaView,
+	StyleSheet,
+	Text,
+	View
+} from 'react-native'
 
 import { fetchTopRatedMovies } from '@/api/movies'
-import { View } from '@/components/Themed'
 import { useQuery } from '@tanstack/react-query'
-import { useEffect, useState } from 'react'
 
 export default function TabOneScreen() {
 	const {
@@ -18,22 +23,22 @@ export default function TabOneScreen() {
 
 	if (isTopRatedMoviesPending) {
 		return (
-			<View style={styles.container}>
+			<SafeAreaView style={styles.container}>
 				<ActivityIndicator size={36} />
-			</View>
+			</SafeAreaView>
 		)
 	}
 
 	if (isTopRatedMoviesError) {
 		return (
-			<View style={styles.container}>
+			<SafeAreaView style={styles.container}>
 				<Text>{`Error - ${topRatedMoviesError.message}`}</Text>
-			</View>
+			</SafeAreaView>
 		)
 	}
 
 	return (
-		<View style={styles.container}>
+		<SafeAreaView style={styles.container}>
 			<FlatList
 				data={topRatedMoviesData}
 				renderItem={({ item }) => (
@@ -42,7 +47,7 @@ export default function TabOneScreen() {
 					</View>
 				)}
 			/>
-		</View>
+		</SafeAreaView>
 	)
 }
 
@@ -50,6 +55,8 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		alignItems: 'center',
-		justifyContent: 'center'
+		justifyContent: 'center',
+		backgroundColor: 'white',
+		padding: 10
 	}
 })
