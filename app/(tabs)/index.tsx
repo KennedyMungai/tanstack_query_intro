@@ -32,7 +32,9 @@ export default function TabOneScreen() {
 	if (isTopRatedMoviesError) {
 		return (
 			<SafeAreaView style={styles.container}>
-				<Text>{`Error - ${topRatedMoviesError.message}`}</Text>
+				<Text
+					style={{ fontSize: 30, color: 'red', textAlign: 'center' }}
+				>{`Error - ${topRatedMoviesError.message}`}</Text>
 			</SafeAreaView>
 		)
 	}
