@@ -1,10 +1,12 @@
 import { fetchSingleMovieById } from '@/api/movies'
+import { FontAwesome } from '@expo/vector-icons'
 import { useQuery } from '@tanstack/react-query'
 import { useLocalSearchParams } from 'expo-router'
 import React from 'react'
 import {
 	ActivityIndicator,
 	Image,
+	Pressable,
 	SafeAreaView,
 	StyleSheet,
 	Text,
@@ -56,15 +58,27 @@ const MovieDetailsPage = () => {
 				}}
 			/>
 			<View style={{ padding: 10 }}>
-				<Text
+				<View
 					style={{
-						fontSize: 24,
-						fontWeight: '500',
-						marginVertical: 10
+						display: 'flex',
+						flexDirection: 'row',
+						justifyContent: 'space-between',
+						alignItems: 'center'
 					}}
 				>
-					{data?.title}
-				</Text>
+					<Text
+						style={{
+							fontSize: 24,
+							fontWeight: '500',
+							marginVertical: 10
+						}}
+					>
+						{data?.title}
+					</Text>
+					<Pressable>
+						<FontAwesome name={'bookmark'} size={24} />
+					</Pressable>
+				</View>
 				<Text
 					style={{ fontSize: 16, fontWeight: '500', lineHeight: 20 }}
 				>
