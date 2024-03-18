@@ -1,6 +1,7 @@
 import { fetchSingleMovieById } from '@/api/movies'
+import { addMovieToWatchList } from '@/api/watchList'
 import { FontAwesome } from '@expo/vector-icons'
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 import { useLocalSearchParams } from 'expo-router'
 import React from 'react'
 import {
@@ -24,6 +25,17 @@ const MovieDetailsPage = () => {
 	} = useQuery({
 		queryKey: ['fetchMovieDetails', { movieId }],
 		queryFn: () => fetchSingleMovieById(movieId as string)
+	})
+
+	const {
+		data: watchListData,
+		isPending: isWatchListPending,
+		isError: isWatchListError,
+		error: watchListError,
+		mutate: watchListMutate
+	} = useMutation({
+		mutationKey: ['addMovieToWatchList', { movieId }],
+		mutationFn: () => addMovieToWatchList(+movieId)
 	})
 
 	if (isSingleMovieError) {
@@ -78,7 +90,7 @@ const MovieDetailsPage = () => {
 					>
 						{singleMovieData?.title}
 					</Text>
-					<Pressable>
+					<Pressable onPress={() => watchListMutate()}>
 						<FontAwesome name={'bookmark-o'} size={24} />
 					</Pressable>
 				</View>
