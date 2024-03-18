@@ -16,12 +16,17 @@ import {
 const MovieDetailsPage = () => {
 	const { movieId } = useLocalSearchParams()
 
-	const { data, error, isError, isPending } = useQuery({
+	const {
+		data: singleMovieData,
+		error: singleMovieError,
+		isError: isSingleMovieError,
+		isPending: isSingleMoviePending
+	} = useQuery({
 		queryKey: ['fetchMovieDetails', { movieId }],
 		queryFn: () => fetchSingleMovieById(movieId as string)
 	})
 
-	if (isError) {
+	if (isSingleMovieError) {
 		return (
 			<SafeAreaView
 				style={[styles.container, { backgroundColor: 'red' }]}
@@ -29,13 +34,13 @@ const MovieDetailsPage = () => {
 				<Text
 					style={{ fontWeight: '700', color: 'white', fontSize: 36 }}
 				>
-					{`Error: ${error.message}`}
+					{`Error: ${singleMovieError.message}`}
 				</Text>
 			</SafeAreaView>
 		)
 	}
 
-	if (isPending) {
+	if (isSingleMoviePending) {
 		return (
 			<SafeAreaView style={styles.container}>
 				<ActivityIndicator style={{ flex: 1 }} />
@@ -43,13 +48,11 @@ const MovieDetailsPage = () => {
 		)
 	}
 
-	const dynamicHeader = isPending ? 'Loading...' : data?.title
-
 	return (
 		<SafeAreaView style={styles.container}>
 			<Image
 				source={{
-					uri: `https://image.tmdb.org/t/p/w500${data?.backdrop_path}`
+					uri: `https://image.tmdb.org/t/p/w500${singleMovieData?.backdrop_path}`
 				}}
 				style={{
 					width: '100%',
@@ -73,7 +76,7 @@ const MovieDetailsPage = () => {
 							marginVertical: 10
 						}}
 					>
-						{data?.title}
+						{singleMovieData?.title}
 					</Text>
 					<Pressable>
 						<FontAwesome name={'bookmark-o'} size={24} />
@@ -82,7 +85,7 @@ const MovieDetailsPage = () => {
 				<Text
 					style={{ fontSize: 16, fontWeight: '500', lineHeight: 20 }}
 				>
-					{data?.overview}
+					{singleMovieData?.overview}
 				</Text>
 			</View>
 		</SafeAreaView>
