@@ -69,7 +69,11 @@ function RootLayoutNav() {
 					/>
 					<Stack.Screen
 						name='movie/[movieId]'
-						options={{ headerTransparent: true }}
+						options={{
+							headerTransparent: true,
+							animation: 'slide_from_right',
+							animationDuration: 300
+						}}
 					/>
 				</Stack>
 			</ThemeProvider>
