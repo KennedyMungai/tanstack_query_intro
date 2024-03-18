@@ -3,11 +3,11 @@ import React from 'react'
 import { Text, View } from 'react-native'
 
 const MovieDetailsPage = () => {
-    const {movieId} = useLocalSearchParams()
+	const { movieId } = useLocalSearchParams()
 
 	return (
 		<View>
-			<Text>MovieDetailsPage</Text>
+			<Text>{movieId}</Text>
 		</View>
 	)
 }
