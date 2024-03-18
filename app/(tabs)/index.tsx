@@ -2,26 +2,21 @@ import { ActivityIndicator, FlatList, StyleSheet, Text } from 'react-native'
 
 import { fetchTopRatedMovies } from '@/api/movies'
 import { View } from '@/components/Themed'
+import { useQuery } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
 
 export default function TabOneScreen() {
-	const [movies, setMovies] = useState<Movie[]>([])
-	const [isLoading, setIsLoading] = useState(false)
+	const {
+		data: topRatedMoviesData,
+		error: topRatedMoviesError,
+		isError: isTopRatedMoviesError,
+		isPending: isTopRatedMoviesPending
+	} = useQuery({
+		queryKey: ['fetchTopRatedMovies'],
+		queryFn: fetchTopRatedMovies
+	})
 
-	useEffect(() => {
-		const fetchMovies = async () => {
-			setIsLoading(true)
-
-			const movies: Movie[] = await fetchTopRatedMovies()
-
-			setMovies(movies)
-			setIsLoading(false)
-		}
-
-		fetchMovies()
-	}, [])
-
-	if (isLoading) {
+	if (isTopRatedMoviesPending) {
 		return (
 			<View style={styles.container}>
 				<ActivityIndicator size={36} />
@@ -29,10 +24,18 @@ export default function TabOneScreen() {
 		)
 	}
 
+	if (isTopRatedMoviesError) {
+		return (
+			<View style={styles.container}>
+				<Text>{`Error - ${topRatedMoviesError.message}`}</Text>
+			</View>
+		)
+	}
+
 	return (
 		<View style={styles.container}>
 			<FlatList
-				data={movies}
+				data={topRatedMoviesData}
 				renderItem={({ item }) => (
 					<View>
 						<Text>{item.title}</Text>
