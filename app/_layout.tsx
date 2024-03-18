@@ -64,7 +64,10 @@ function RootLayoutNav() {
 						name='(tabs)'
 						options={{ headerShown: false }}
 					/>
-					<Stack.Screen name='movie/[movieId]' />
+					<Stack.Screen
+						name='movie/[movieId]'
+						options={{ headerTransparent: true }}
+					/>
 				</Stack>
 			</ThemeProvider>
 		</QueryClientProvider>
