@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 
 export default function TabOneScreen() {
 	useEffect(() => {
-		console.log(fetchTopRatedMovies())
+		fetchTopRatedMovies()
 	}, [])
 
 	return <View style={styles.container}></View>
