@@ -1,15 +1,15 @@
-import { StyleSheet } from 'react-native'
+import { FlatList, StyleSheet, Text } from 'react-native'
 
 import { fetchTopRatedMovies } from '@/api/movies'
 import { View } from '@/components/Themed'
 import { useEffect, useState } from 'react'
 
 export default function TabOneScreen() {
-	const [movies, setMovies] = useState([])
+	const [movies, setMovies] = useState<Movie[]>([])
 
 	useEffect(() => {
 		const fetchMovies = async () => {
-			const movies = await fetchTopRatedMovies()
+			const movies: Movie[] = await fetchTopRatedMovies()
 
 			setMovies(movies)
 		}
@@ -17,7 +17,18 @@ export default function TabOneScreen() {
 		fetchMovies()
 	}, [])
 
-	return <View style={styles.container}></View>
+	return (
+		<View style={styles.container}>
+			<FlatList
+				data={movies}
+				renderItem={({ item }) => (
+					<View>
+						<Text>{item.title}</Text>
+					</View>
+				)}
+			/>
+		</View>
+	)
 }
 
 const styles = StyleSheet.create({
