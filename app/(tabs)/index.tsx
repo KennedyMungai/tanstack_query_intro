@@ -22,7 +22,11 @@ export default function TabOneScreen() {
 	}, [])
 
 	if (isLoading) {
-		return <ActivityIndicator />
+		return (
+			<View style={styles.container}>
+				<ActivityIndicator size={36} />
+			</View>
+		)
 	}
 
 	return (
