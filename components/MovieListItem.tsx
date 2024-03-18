@@ -9,28 +9,26 @@ type Props = {
 const MovieListItem = ({ movie }: Props) => {
 	return (
 		<Link href={`/movie/${movie.id}`} asChild>
-			<Pressable style={{ flex: 1 }}>
-				<View style={styles.cardContainer}>
-					<View
-						style={{
-							display: 'flex',
-							justifyContent: 'center',
-							alignItems: 'center',
-							padding: 2
+			<Pressable style={styles.cardContainer}>
+				<View
+					style={{
+						display: 'flex',
+						justifyContent: 'center',
+						alignItems: 'center',
+						padding: 2
+					}}
+				>
+					<Image
+						source={{
+							uri: `https://image.tmdb.org/t/p/w500${movie.poster_path}`
 						}}
-					>
-						<Image
-							source={{
-								uri: `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-							}}
-							style={{
-								width: '100%',
-								aspectRatio: 9 / 16,
-								borderRadius: 10,
-								height: 'auto'
-							}}
-						/>
-					</View>
+						style={{
+							width: '100%',
+							aspectRatio: 9 / 16,
+							borderRadius: 10,
+							height: 'auto'
+						}}
+					/>
 				</View>
 			</Pressable>
 		</Link>
