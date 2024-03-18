@@ -1,13 +1,6 @@
 import { useRouter } from 'expo-router'
 import React from 'react'
-import {
-	Text,
-	View,
-	StyleSheet,
-	Image,
-	Pressable,
-	TouchableOpacity
-} from 'react-native'
+import { Image, Pressable, StyleSheet, View } from 'react-native'
 
 type Props = {
 	movie: Movie
@@ -17,7 +10,7 @@ const MovieListItem = ({ movie }: Props) => {
 	const router = useRouter()
 
 	return (
-		<TouchableOpacity onPress={() => router.navigate(`/movie/${movie.id}`)}>
+		<Pressable onPress={() => router.navigate(`/movie/${movie.id}`)}>
 			<View style={styles.cardContainer}>
 				<View
 					style={{
@@ -40,7 +33,7 @@ const MovieListItem = ({ movie }: Props) => {
 					/>
 				</View>
 			</View>
-		</TouchableOpacity>
+		</Pressable>
 	)
 }
 
