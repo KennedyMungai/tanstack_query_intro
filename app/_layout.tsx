@@ -72,7 +72,8 @@ function RootLayoutNav() {
 						options={{
 							headerTransparent: true,
 							animation: 'slide_from_right',
-							animationDuration: 300
+							animationDuration: 300,
+							headerTitle: 'Movie Details'
 						}}
 					/>
 				</Stack>
