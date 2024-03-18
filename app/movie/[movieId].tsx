@@ -50,8 +50,7 @@ const MovieDetailsPage = () => {
 				}}
 				style={{
 					width: '100%',
-					aspectRatio: 16 / 9,
-					height: 'auto',
+					height: 300,
 					borderRadius: 5
 				}}
 			/>
