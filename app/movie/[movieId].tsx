@@ -1,14 +1,14 @@
 import { useLocalSearchParams } from 'expo-router'
 import React from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet, SafeAreaView } from 'react-native'
 
 const MovieDetailsPage = () => {
 	const { movieId } = useLocalSearchParams()
 
 	return (
-		<View style={styles.container}>
+		<SafeAreaView style={styles.container}>
 			<Text>{movieId}</Text>
-		</View>
+		</SafeAreaView>
 	)
 }
 
@@ -17,6 +17,8 @@ export default MovieDetailsPage
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: 'white'
+		backgroundColor: 'white',
+		paddingTop: 100,
+		paddingHorizontal: 10
 	}
 })
