@@ -1,5 +1,5 @@
 const fetchTopRatedMovies = () => {
-	const url = `https://api.themoviedb.org/3/movie/157336/videos?api_key=${process.env.API_KEY}`
+	const url = `https://api.themoviedb.org/3/movie/top_rated?page=1&api_key=${process.env.API_KEY}`
 
 	const options = {
 		method: 'GET',
