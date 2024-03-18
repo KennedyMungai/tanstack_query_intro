@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native'
 
+import { fetchTopRatedMovies } from '@/api/movies'
 import { View } from '@/components/Themed'
 import { useEffect } from 'react'
 
