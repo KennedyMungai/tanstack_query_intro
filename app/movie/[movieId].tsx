@@ -38,7 +38,12 @@ const MovieDetailsPage = () => {
 
 	return (
 		<>
-			<Stack.Screen options={{ title: dynamicHeader }} />
+			<Stack.Screen
+				options={{
+					title: dynamicHeader,
+					headerBackTitle: 'Movies List'
+				}}
+			/>
 			<SafeAreaView style={styles.container}>
 				<Text style={{ fontSize: 24, fontWeight: '500' }}>
 					{data?.title}
