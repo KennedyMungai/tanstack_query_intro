@@ -9,6 +9,7 @@ import {
 
 import { fetchTopRatedMovies } from '@/api/movies'
 import { useQuery } from '@tanstack/react-query'
+import MovieListItem from '@/components/MovieListItem'
 
 export default function TabOneScreen() {
 	const {
@@ -43,11 +44,8 @@ export default function TabOneScreen() {
 		<SafeAreaView style={styles.container}>
 			<FlatList
 				data={topRatedMoviesData}
-				renderItem={({ item }) => (
-					<View>
-						<Text>{item.title}</Text>
-					</View>
-				)}
+				showsVerticalScrollIndicator={false}
+				renderItem={({ item }) => <MovieListItem movie={item} />}
 			/>
 		</SafeAreaView>
 	)
@@ -59,6 +57,6 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center',
 		backgroundColor: 'white',
-		padding: 10
+		paddingVertical: 10
 	}
 })
