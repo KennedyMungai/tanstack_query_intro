@@ -1,35 +1,46 @@
+import { useRouter } from 'expo-router'
 import React from 'react'
-import { Text, View, StyleSheet, Image } from 'react-native'
+import {
+	Text,
+	View,
+	StyleSheet,
+	Image,
+	Pressable,
+	TouchableOpacity
+} from 'react-native'
 
 type Props = {
 	movie: Movie
 }
 
 const MovieListItem = ({ movie }: Props) => {
+	const router = useRouter()
+
 	return (
-		<View style={styles.cardContainer}>
-			{/* <Text style={styles.cardTitle}>{movie.title}</Text> */}
-			<View
-				style={{
-					display: 'flex',
-					justifyContent: 'center',
-					alignItems: 'center',
-					padding: 2
-				}}
-			>
-				<Image
-					source={{
-						uri: `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-					}}
+		<TouchableOpacity onPress={() => router.navigate(`/movie/${movie.id}`)}>
+			<View style={styles.cardContainer}>
+				<View
 					style={{
-						width: '100%',
-						aspectRatio: 9 / 16,
-						borderRadius: 10,
-						height: 'auto'
+						display: 'flex',
+						justifyContent: 'center',
+						alignItems: 'center',
+						padding: 2
 					}}
-				/>
+				>
+					<Image
+						source={{
+							uri: `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+						}}
+						style={{
+							width: '100%',
+							aspectRatio: 9 / 16,
+							borderRadius: 10,
+							height: 'auto'
+						}}
+					/>
+				</View>
 			</View>
-		</View>
+		</TouchableOpacity>
 	)
 }
 
