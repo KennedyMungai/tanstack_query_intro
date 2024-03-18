@@ -34,9 +34,11 @@ const MovieDetailsPage = () => {
 		)
 	}
 
+	const dynamicHeader = isPending ? 'Loading...' : data?.title
+
 	return (
 		<>
-			<Stack.Screen options={{ title: data?.title }} />
+			<Stack.Screen options={{ title: dynamicHeader }} />
 			<SafeAreaView style={styles.container}>
 				<Text style={{ fontSize: 24, fontWeight: '500' }}>
 					{data?.title}
