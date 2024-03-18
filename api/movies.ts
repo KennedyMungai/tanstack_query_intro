@@ -1,4 +1,4 @@
-const fetchTopRatedMovies = () => {
+export const fetchTopRatedMovies = () => {
 	const url = `https://api.themoviedb.org/3/movie/top_rated?page=1&api_key=${process.env.API_KEY}`
 
 	const options = {
