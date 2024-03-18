@@ -3,13 +3,12 @@ import {
 	FlatList,
 	SafeAreaView,
 	StyleSheet,
-	Text,
-	View
+	Text
 } from 'react-native'
 
 import { fetchTopRatedMovies } from '@/api/movies'
-import { useQuery } from '@tanstack/react-query'
 import MovieListItem from '@/components/MovieListItem'
+import { useQuery } from '@tanstack/react-query'
 
 export default function TabOneScreen() {
 	const {
