@@ -2,7 +2,13 @@ import { fetchSingleMovieById } from '@/api/movies'
 import { useQuery } from '@tanstack/react-query'
 import { Stack, useLocalSearchParams } from 'expo-router'
 import React from 'react'
-import { ActivityIndicator, SafeAreaView, StyleSheet, Text } from 'react-native'
+import {
+	ActivityIndicator,
+	Image,
+	SafeAreaView,
+	StyleSheet,
+	Text
+} from 'react-native'
 
 const MovieDetailsPage = () => {
 	const { movieId } = useLocalSearchParams()
@@ -38,6 +44,17 @@ const MovieDetailsPage = () => {
 
 	return (
 		<SafeAreaView style={styles.container}>
+			<Image
+				source={{
+					uri: `https://image.tmdb.org/t/p/w500${data?.backdrop_path}`
+				}}
+				style={{
+					width: '100%',
+					aspectRatio: 16 / 9,
+					height: 'auto',
+					borderRadius: 5
+				}}
+			/>
 			<Text style={{ fontSize: 24, fontWeight: '500' }}>
 				{data?.title}
 			</Text>
