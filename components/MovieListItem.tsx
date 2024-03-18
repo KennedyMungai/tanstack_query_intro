@@ -8,7 +8,7 @@ type Props = {
 const MovieListItem = ({ movie }: Props) => {
 	return (
 		<View style={styles.cardContainer}>
-			<Text style={styles.cardTitle}>{movie.title}</Text>
+			{/* <Text style={styles.cardTitle}>{movie.title}</Text> */}
 			<View
 				style={{
 					display: 'flex',
