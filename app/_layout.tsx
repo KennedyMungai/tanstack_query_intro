@@ -64,10 +64,7 @@ function RootLayoutNav() {
 						name='(tabs)'
 						options={{ headerShown: false }}
 					/>
-					<Stack.Screen
-						name='modal'
-						options={{ presentation: 'modal' }}
-					/>
+					<Stack.Screen name='movie/[movieId]' />
 				</Stack>
 			</ThemeProvider>
 		</QueryClientProvider>
