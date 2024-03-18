@@ -44,6 +44,7 @@ export default function TabOneScreen() {
 			<FlatList
 				data={topRatedMoviesData}
 				showsVerticalScrollIndicator={false}
+				keyExtractor={(item: Movie) => item.id.toString()}
 				renderItem={({ item }) => <MovieListItem movie={item} />}
 			/>
 		</SafeAreaView>
@@ -56,6 +57,7 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center',
 		backgroundColor: 'white',
-		paddingVertical: 10
+		paddingVertical: 10,
+		marginHorizontal: 10
 	}
 })
