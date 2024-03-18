@@ -1,6 +1,6 @@
 import { fetchSingleMovieById } from '@/api/movies'
 import { useQuery } from '@tanstack/react-query'
-import { useLocalSearchParams } from 'expo-router'
+import { Stack, useLocalSearchParams } from 'expo-router'
 import React from 'react'
 import { ActivityIndicator, SafeAreaView, StyleSheet, Text } from 'react-native'
 
@@ -35,11 +35,14 @@ const MovieDetailsPage = () => {
 	}
 
 	return (
-		<SafeAreaView style={styles.container}>
-			<Text style={{ fontSize: 24, fontWeight: '500' }}>
-				{data?.title}
-			</Text>
-		</SafeAreaView>
+		<>
+			<Stack.Screen options={{ title: data?.title }} />
+			<SafeAreaView style={styles.container}>
+				<Text style={{ fontSize: 24, fontWeight: '500' }}>
+					{data?.title}
+				</Text>
+			</SafeAreaView>
+		</>
 	)
 }
 
