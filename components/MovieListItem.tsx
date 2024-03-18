@@ -13,7 +13,8 @@ const MovieListItem = ({ movie }: Props) => {
 				style={{
 					display: 'flex',
 					justifyContent: 'center',
-					alignItems: 'center'
+					alignItems: 'center',
+					padding: 2
 				}}
 			>
 				<Image
