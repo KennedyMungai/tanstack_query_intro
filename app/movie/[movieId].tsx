@@ -36,7 +36,9 @@ const MovieDetailsPage = () => {
 
 	return (
 		<SafeAreaView style={styles.container}>
-			<Text>{JSON.stringify(data)}</Text>
+			<Text style={{ fontSize: 24, fontWeight: '500' }}>
+				{data?.title}
+			</Text>
 		</SafeAreaView>
 	)
 }
