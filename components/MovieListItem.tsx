@@ -22,7 +22,7 @@ const MovieListItem = ({ movie }: Props) => {
 					}}
 					style={{
 						width: '100%',
-						aspectRatio: 1,
+						aspectRatio: 9 / 16,
 						borderRadius: 5,
 						height: 'auto'
 					}}
