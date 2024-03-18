@@ -1,6 +1,6 @@
 import { useLocalSearchParams } from 'expo-router'
 import React from 'react'
-import { Text, View, StyleSheet, SafeAreaView } from 'react-native'
+import { SafeAreaView, StyleSheet, Text } from 'react-native'
 
 const MovieDetailsPage = () => {
 	const { movieId } = useLocalSearchParams()
