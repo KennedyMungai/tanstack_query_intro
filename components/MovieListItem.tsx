@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
 	cardTitle: {
 		fontSize: 26,
 		fontWeight: '700',
-		color: '#C1C1C190',
+		color: '#C1C1C1',
 		textTransform: 'uppercase'
 	}
 })
