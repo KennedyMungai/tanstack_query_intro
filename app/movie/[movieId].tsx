@@ -76,7 +76,7 @@ const MovieDetailsPage = () => {
 						{data?.title}
 					</Text>
 					<Pressable>
-						<FontAwesome name={'bookmark'} size={24} />
+						<FontAwesome name={'bookmark-o'} size={24} />
 					</Pressable>
 				</View>
 				<Text
