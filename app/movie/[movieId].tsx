@@ -1,6 +1,6 @@
 import { fetchSingleMovieById } from '@/api/movies'
 import { useQuery } from '@tanstack/react-query'
-import { Stack, useLocalSearchParams } from 'expo-router'
+import { useLocalSearchParams } from 'expo-router'
 import React from 'react'
 import {
 	ActivityIndicator,
