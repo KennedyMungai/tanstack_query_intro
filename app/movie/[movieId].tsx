@@ -7,7 +7,8 @@ import {
 	Image,
 	SafeAreaView,
 	StyleSheet,
-	Text
+	Text,
+	View
 } from 'react-native'
 
 const MovieDetailsPage = () => {
@@ -54,9 +55,22 @@ const MovieDetailsPage = () => {
 					borderRadius: 5
 				}}
 			/>
-			<Text style={{ fontSize: 24, fontWeight: '500' }}>
-				{data?.title}
-			</Text>
+			<View style={{ padding: 10 }}>
+				<Text
+					style={{
+						fontSize: 24,
+						fontWeight: '500',
+						marginVertical: 10
+					}}
+				>
+					{data?.title}
+				</Text>
+				<Text
+					style={{ fontSize: 16, fontWeight: '500', lineHeight: 20 }}
+				>
+					{data?.overview}
+				</Text>
+			</View>
 		</SafeAreaView>
 	)
 }
