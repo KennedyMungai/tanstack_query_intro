@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
 	cardContainer: {
 		width: '95%',
 		height: 'auto',
-		marginVertical: 10,
+		marginTop: 20,
 		display: 'flex',
 		justifyContent: 'center'
 	},
