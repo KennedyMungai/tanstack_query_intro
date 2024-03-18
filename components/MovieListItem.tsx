@@ -36,11 +36,12 @@ export default MovieListItem
 
 const styles = StyleSheet.create({
 	cardContainer: {
-		width: '95%',
+		width: '100%',
 		height: 'auto',
 		marginTop: 20,
 		display: 'flex',
-		justifyContent: 'center'
+		justifyContent: 'center',
+		marginRight: 30
 	},
 	cardTitle: {
 		fontSize: 26,
