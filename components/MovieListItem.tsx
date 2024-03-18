@@ -8,7 +8,7 @@ type Props = {
 const MovieListItem = ({ movie }: Props) => {
 	return (
 		<View style={styles.cardContainer}>
-			<Text>{movie.title}</Text>
+			<Text style={styles.cardTitle}>{movie.title}</Text>
 		</View>
 	)
 }
@@ -16,5 +16,15 @@ const MovieListItem = ({ movie }: Props) => {
 export default MovieListItem
 
 const styles = StyleSheet.create({
-	cardContainer: { width: '100%', height: 50 }
+	cardContainer: {
+		width: '100%',
+		height: 200,
+		marginVertical: 5
+	},
+	cardTitle: {
+		fontSize: 26,
+		fontWeight: '700',
+		color: '#C1C1C190',
+		textTransform: 'uppercase'
+	}
 })
