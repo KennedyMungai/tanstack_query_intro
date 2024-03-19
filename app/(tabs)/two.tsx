@@ -6,7 +6,7 @@ import {
 	Text
 } from 'react-native'
 
-import { fetchTopRatedMovies } from '@/api/movies'
+import { fetchWatchlistMovies } from '@/api/watchList'
 import MovieListItem from '@/components/MovieListItem'
 import { useQuery } from '@tanstack/react-query'
 
@@ -18,7 +18,7 @@ export default function TabTwoScreen() {
 		isPending: isTopRatedMoviesPending
 	} = useQuery({
 		queryKey: ['fetchWatchListMovies'],
-		queryFn: fetchTopRatedMovies
+		queryFn: fetchWatchlistMovies
 	})
 
 	if (isTopRatedMoviesPending) {
